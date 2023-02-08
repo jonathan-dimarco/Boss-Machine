@@ -1,7 +1,5 @@
 const express = require('express');
 const app = express();
-const bodyParser = require('body-parser');
-const cors = require('cors');
 
 module.exports = app;
 
@@ -11,10 +9,11 @@ module.exports = app;
 const PORT = process.env.PORT || 4001;
 
 //Middleware for handling CORS requests from index.html
+const cors = require('cors');
 app.use(cors())
 
 // Middware for parsing request bodies:
-
+const bodyParser = require('body-parser');
 app.use(bodyParser.json())
 
 // Mount  apiRouter.
@@ -25,6 +24,6 @@ app.use('./api', apiRouter);
 if (!module.parent) { 
   //Code to start the server listening at PORT below:
 app.listen(PORT, () => {
-  console.log(`App listening at port ${PORT}`);
+  console.log(`App listening on port ${PORT}`);
 })
 }

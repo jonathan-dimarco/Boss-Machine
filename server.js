@@ -18,7 +18,7 @@ app.use(bodyParser.json())
 
 // Mount  apiRouter.
 const apiRouter = require('./server/api');
-app.use('./api', apiRouter);
+app.use('/api', apiRouter);
 
 // This conditional is here for testing purposes:
 if (!module.parent) { 

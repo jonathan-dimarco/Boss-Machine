@@ -39,7 +39,7 @@ res.send(updatedIdea);
 });
 
 ideasRouter.delete('/:ideaId', (req, res, next) => {
-    deletedIdea = deleteFromDatabasebyId('ideas', req.idea);
+    const deletedIdea = deleteFromDatabasebyId('ideas', req.idea);
     if (deletedIdea) {
         res.status(204);
     } else {
